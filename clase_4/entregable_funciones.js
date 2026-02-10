@@ -34,4 +34,4 @@ agregarLibro("Cien Años de Soledad");
 agregarLibro("1984");
 agregarLibro("Muchas vidas varios Maestros");
 
-mostrarLibrosLeidos(); // Ahora debería mostrar los 3 libros
+mostrarLibrosLeidos(); 

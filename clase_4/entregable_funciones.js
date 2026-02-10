@@ -10,7 +10,7 @@ function agregarLibro(titulo) {
 
 // 3. Función para mostrar todos los libros
 function mostrarLibrosLeidos() {
-    console.log("--- Lista de Libros Leídos ---");
+    console.log("Lista de Libros Leídos");
     
     // Verificamos si la lista está vacía antes de recorrerla
     if (librosLeidos.length === 0) {

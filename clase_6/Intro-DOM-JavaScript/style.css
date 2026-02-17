@@ -1,0 +1,97 @@
+/* --- Estilos base (iguales al anterior) --- */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+.container {
+    background: white;
+    width: 100%;
+    max-width: 600px; /* Un poco más ancho para las respuestas */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    box-sizing: border-box;
+}
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    color: white;
+    font-size: 0.9rem;
+}
+#addBtn {
+    width: 100%;
+    background-color: #007bff;
+    margin-top: 10px;
+}
+#addBtn:hover { background-color: #0056b3; }
+hr { margin: 20px 0; border: 0; border-top: 1px solid #eee; }
+
+/* --- NUEVOS ESTILOS PARA COMENTARIOS Y RESPUESTAS --- */
+
+.comment-card {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comment-date {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.comment-text {
+    margin: 0 0 10px 0;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Botonera de acciones */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-reply { background-color: #28a745; } /* Verde para responder */
+.btn-delete { background-color: #dc3545; } /* Rojo para borrar */
+
+/* --- IMPORTANTE: Identación para las respuestas --- */
+.replies-container {
+    margin-top: 15px;
+    margin-left: 30px; /* Esto empuja las respuestas a la derecha */
+    border-left: 2px solid #ddd; /* Línea guía visual */
+    padding-left: 15px;
+}
+
+/* Caja temporal para escribir la respuesta */
+.reply-input-box {
+    margin-top: 10px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+.reply-input-box textarea {
+    height: 60px;
+    margin-bottom: 5px;
+}

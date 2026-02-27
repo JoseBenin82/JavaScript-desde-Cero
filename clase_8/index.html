@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Películas y Comentarios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎬 Ghibli CineForo</h1>
+        <p>Selecciona una película para ver los detalles y unirte a la discusión.</p>
+    </header>
+
+    <main>
+        <div id="movies-grid" class="grid-container"></div>
+    </main>
+
+    <div id="movie-modal" class="modal hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">✖ Cerrar</button>
+            
+            <div class="modal-body">
+                <div class="movie-info">
+                    <img id="modal-img" src="" alt="Póster de la película">
+                    <div class="movie-text">
+                        <h2 id="modal-title">Título</h2>
+                        <p id="modal-description">Descripción...</p>
+                    </div>
+                </div>
+
+                <section class="comments-section">
+                    <h3>Comentarios</h3>
+                    <form id="main-comment-form" class="comment-form">
+                        <textarea id="main-comment-text" placeholder="¿Qué te pareció esta película?" required></textarea>
+                        <button type="submit">Agregar comentario</button>
+                    </form>
+                    <div id="comments-container"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,70 +1,229 @@
-/* --- Estilos Generales --- */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-body { background-color: #f4f4f9; color: #333; }
-header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
-header p { margin-top: 10px; opacity: 0.8; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-/* --- Cuadrícula de Películas (Grid) --- */
+body {
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header p {
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
     padding: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.movie-card {
+.book-card {
     background: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
 }
 
-.movie-card:hover { transform: translateY(-5px); }
-.movie-card img { width: 100%; height: 300px; object-fit: cover; }
-.movie-card h3 { padding: 15px; font-size: 1.1em; text-align: center; }
+.book-card:hover {
+    transform: translateY(-5px);
+}
 
-/* --- Ventana Modal --- */
+/* Ajuste para portadas de libros (más altas que anchas) */
+.book-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    background: #ddd;
+}
+
+.book-card h3 {
+    padding: 15px 15px 5px;
+    font-size: 1em;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.book-card p {
+    padding: 0 15px 15px;
+    font-size: 0.85em;
+    text-align: center;
+    color: #7f8c8d;
+}
+
 .modal {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: flex; justify-content: center; align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 1000;
 }
-.modal.hidden { display: none; }
+
+.modal.hidden {
+    display: none;
+}
 
 .modal-content {
-    background: white; width: 90%; max-width: 800px;
-    max-height: 90vh; overflow-y: auto;
-    border-radius: 8px; position: relative; padding: 20px;
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    position: relative;
+    padding: 30px;
 }
 
 .close-btn {
-    position: absolute; top: 15px; right: 15px;
-    background: #e74c3c; color: white; border: none;
-    padding: 8px 12px; border-radius: 4px; cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.movie-info { display: flex; gap: 20px; margin-bottom: 30px; margin-top: 20px;}
-.movie-info img { width: 200px; border-radius: 8px; }
-.movie-text h2 { margin-bottom: 10px; color: #2c3e50; }
-.movie-text p { line-height: 1.6; color: #555; }
+.book-info {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+}
 
-/* --- Estilos de Comentarios (Igual que antes) --- */
-.comment-form { display: flex; flex-direction: column; margin-bottom: 20px; }
-.comment-form textarea { padding: 10px; min-height: 80px; margin-bottom: 10px; border-radius: 4px; }
-button[type="submit"] { align-self: flex-start; padding: 8px 16px; background-color: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer; }
-.comment { border: 1px solid #e1e1e1; padding: 15px; margin-top: 15px; border-radius: 6px; background: #fafafa; }
-.comment-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.85em; color: #7f8c8d; }
-.comment-text { margin-bottom: 10px; }
-.comment-actions button { background: none; color: #3498db; padding: 0; margin-right: 15px; border: none; cursor: pointer;}
-.comment-actions .btn-delete { color: #e74c3c; }
-.replies-container { margin-left: 30px; border-left: 2px solid #ecf0f1; padding-left: 15px; }
+.book-info img {
+    width: 180px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book-text h2 {
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.book-text #modal-author {
+    color: #7f8c8d;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Estilos del Tracker */
+.tracking-status {
+    background: #ecf0f1;
+    padding: 15px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.tracking-status select {
+    padding: 8px;
+    margin-left: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+/* Estilos de Notas (Mismos que los comentarios anteriores) */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.comment-form textarea {
+    padding: 10px;
+    min-height: 80px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    align-self: flex-start;
+    padding: 8px 16px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button[type="submit"]:hover {
+    background-color: #2ecc71;
+}
+
+.comment {
+    border: 1px solid #e1e1e1;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 6px;
+    background: #fafafa;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.85em;
+    color: #7f8c8d;
+}
+
+.comment-text {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.comment-actions button {
+    background: none;
+    color: #2980b9;
+    padding: 0;
+    margin-right: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.comment-actions .btn-delete {
+    color: #e74c3c;
+}
+
+.replies-container {
+    margin-left: 30px;
+    border-left: 2px solid #bdc3c7;
+    padding-left: 15px;
+}
 
 @media (max-width: 600px) {
-    .movie-info { flex-direction: column; }
-    .movie-info img { width: 100%; }
+    .book-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }

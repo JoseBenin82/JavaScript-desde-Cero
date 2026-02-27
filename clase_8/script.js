@@ -1,98 +1,103 @@
-// --- 1. Lógica de la API y Renderizado de Películas ---
-const moviesGrid = document.getElementById('movies-grid');
+const booksGrid = document.getElementById('books-grid');
 
-const loadMovies = async () => {
+// 1. Cargar libros desde Open Library API
+const loadBooks = async () => {
     try {
-        // Obtenemos TODAS las películas de la API
-        const response = await fetch('https://ghibliapi.vercel.app/films');
-        const movies = await response.json();
-        
-        movies.forEach(movie => {
-            // Crear tarjeta por cada película
+        // Obtenemos 12 libros del tema "Ciencia Ficción" (science_fiction)
+        const response = await fetch('https://openlibrary.org/subjects/science_fiction.json?limit=12');
+        const data = await response.json();
+        const books = data.works; // La API devuelve los libros dentro del arreglo 'works'
+
+        books.forEach(book => {
+            // Generar la URL de la portada usando el cover_id
+            const coverUrl = book.cover_id
+                ? `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`
+                : 'https://via.placeholder.com/180x260?text=Sin+Portada';
+
+            const authorName = book.authors ? book.authors[0].name : 'Autor desconocido';
+
             const card = document.createElement('div');
-            card.classList.add('movie-card');
+            card.classList.add('book-card');
             card.innerHTML = `
-                <img src="${movie.image}" alt="${movie.title}">
-                <h3>${movie.title}</h3>
+                <img src="${coverUrl}" alt="${book.title}">
+                <h3>${book.title}</h3>
+                <p>${authorName}</p>
             `;
-            
-            // Al hacer clic, abrimos el modal con los datos de ESA película
-            card.addEventListener('click', () => openModal(movie));
-            moviesGrid.appendChild(card);
+
+            // Pasar los datos del libro y la portada al modal
+            card.addEventListener('click', () => openModal(book, coverUrl, authorName));
+            booksGrid.appendChild(card);
         });
     } catch (error) {
-        moviesGrid.innerHTML = '<p>Error al cargar las películas.</p>';
+        booksGrid.innerHTML = '<p>Error al cargar la biblioteca.</p>';
         console.error("Error API:", error);
     }
 };
 
-// --- 2. Lógica del Modal ---
-const modal = document.getElementById('movie-modal');
+// 2. Lógica del Modal y Seguimiento
+const modal = document.getElementById('book-modal');
 const closeModalBtn = document.getElementById('close-modal');
 const commentsContainer = document.getElementById('comments-container');
+const statusSelect = document.getElementById('status-select');
 
-const openModal = (movie) => {
-    // Llenar datos de la película en el modal
-    document.getElementById('modal-title').textContent = movie.title;
-    document.getElementById('modal-description').textContent = movie.description;
-    document.getElementById('modal-img').src = movie.image;
-    
-    // Limpiar comentarios anteriores cada vez que abrimos una película nueva
+const openModal = (book, coverUrl, authorName) => {
+    document.getElementById('modal-title').textContent = book.title;
+    document.getElementById('modal-author').textContent = authorName;
+    document.getElementById('modal-img').src = coverUrl;
+
+    // Resetear notas y estado al abrir un libro nuevo
     commentsContainer.innerHTML = '';
     document.getElementById('main-comment-text').value = '';
+    statusSelect.value = 'quiero-leer'; // Por defecto
 
-    // Mostrar el modal
     modal.classList.remove('hidden');
 };
 
-// Cerrar modal
 closeModalBtn.addEventListener('click', () => {
     modal.classList.add('hidden');
 });
 
-// --- 3. Lógica de Comentarios Anidados ---
+// 3. Lógica de Notas Anidadas (Recursividad)
 const mainForm = document.getElementById('main-comment-form');
 
 const getCurrentTimestamp = () => {
     return new Date().toLocaleString('es-ES', { dateStyle: 'medium', timeStyle: 'short' });
 };
 
-const createCommentElement = (text) => {
-    const commentDiv = document.createElement('div');
-    commentDiv.classList.add('comment');
+const createNoteElement = (text) => {
+    const noteDiv = document.createElement('div');
+    noteDiv.classList.add('comment');
 
-    commentDiv.innerHTML = `
+    noteDiv.innerHTML = `
         <div class="comment-header">
-            <strong>Cinéfilo Anónimo</strong>
+            <strong>Mi Nota</strong>
             <span>${getCurrentTimestamp()}</span>
         </div>
         <div class="comment-text">${text}</div>
         <div class="comment-actions">
-            <button class="btn-reply">Responder</button>
-            <button class="btn-delete">Eliminar</button>
+            <button class="btn-reply">Añadir sub-nota</button>
+            <button class="btn-delete">Borrar</button>
         </div>
         <div class="reply-form-container"></div>
         <div class="replies-container"></div>
     `;
 
-    const btnReply = commentDiv.querySelector('.btn-reply');
-    const btnDelete = commentDiv.querySelector('.btn-delete');
-    const replyFormContainer = commentDiv.querySelector('.reply-form-container');
-    const repliesContainer = commentDiv.querySelector('.replies-container');
+    const btnReply = noteDiv.querySelector('.btn-reply');
+    const btnDelete = noteDiv.querySelector('.btn-delete');
+    const replyFormContainer = noteDiv.querySelector('.reply-form-container');
+    const repliesContainer = noteDiv.querySelector('.replies-container');
 
-    // Eliminar comentario
-    btnDelete.addEventListener('click', () => commentDiv.remove());
+    btnDelete.addEventListener('click', () => noteDiv.remove());
 
-    // Responder comentario
     btnReply.addEventListener('click', () => {
         if (replyFormContainer.innerHTML !== '') return;
 
         const replyForm = document.createElement('form');
         replyForm.classList.add('comment-form');
         replyForm.innerHTML = `
-            <textarea placeholder="Escribe tu respuesta..." required></textarea>
+            <textarea placeholder="Profundiza en esta idea..." required></textarea>
             <div style="display: flex; gap: 10px;">
-                <button type="submit">Publicar</button>
+                <button type="submit">Guardar</button>
                 <button type="button" class="btn-cancel" style="background-color: #95a5a6;">Cancelar</button>
             </div>
         `;
@@ -106,27 +111,28 @@ const createCommentElement = (text) => {
         replyForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const replyText = replyForm.querySelector('textarea').value;
-            const newReplyElement = createCommentElement(replyText);
+            // ¡Aquí ocurre la magia recursiva!
+            const newReplyElement = createNoteElement(replyText);
             repliesContainer.appendChild(newReplyElement);
             replyFormContainer.innerHTML = '';
         });
     });
 
-    return commentDiv;
+    return noteDiv;
 };
 
-// Enviar comentario principal
+// Evento para la nota principal
 mainForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const textArea = document.getElementById('main-comment-text');
     const text = textArea.value.trim();
 
     if (text !== '') {
-        const newComment = createCommentElement(text);
-        commentsContainer.prepend(newComment); 
-        textArea.value = ''; 
+        const newNote = createNoteElement(text);
+        commentsContainer.prepend(newNote);
+        textArea.value = '';
     }
 });
 
-// Iniciar la aplicación
-loadMovies();
+// Inicializar
+loadBooks();

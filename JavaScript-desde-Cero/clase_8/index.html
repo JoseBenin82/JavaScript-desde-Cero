@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Rastreador de Libros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>📚 Biblioteca y Seguimiento</h1>
+        <p>Explora libros, actualiza tu progreso y toma notas de lectura.</p>
+    </header>
+
+    <main>
+        <div id="books-grid" class="grid-container"></div>
+    </main>
+
+    <div id="book-modal" class="modal hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">✖ Cerrar</button>
+
+            <div class="modal-body">
+                <div class="book-info">
+                    <img id="modal-img" src="" alt="Portada del libro">
+                    <div class="book-text">
+                        <h2 id="modal-title">Título del Libro</h2>
+                        <p id="modal-author">Autor</p>
+
+                        <div class="tracking-status">
+                            <label for="status-select"><strong>Estado de lectura:</strong></label>
+                            <select id="status-select">
+                                <option value="quiero-leer">Quiero leer</option>
+                                <option value="leyendo">Leyendo actualmente</option>
+                                <option value="leido">Ya lo leí</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="comments-section">
+                    <h3>Mis Notas y Apuntes</h3>
+                    <form id="main-comment-form" class="comment-form">
+                        <textarea id="main-comment-text"
+                            placeholder="Escribe una nota, cita favorita o pensamiento sobre el libro..."
+                            required></textarea>
+                        <button type="submit">Guardar Nota</button>
+                    </form>
+                    <div id="comments-container"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

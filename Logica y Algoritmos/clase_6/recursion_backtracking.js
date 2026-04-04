@@ -8,7 +8,7 @@ const gifts = ["Muñeca", "Carro de juguete", "Rompecabezas", "Lego", "Pelota"];
 
 // Función para buscar recursivamente el regalo en la lista
 function findGift(gifts, giftName, index = 0) {
-    
+
     // 1er Caso base: Si llegamos al final de la lista (el índice es igual a la longitud del arreglo)
     // Esto significa que recorrimos todo y no encontramos el regalo.
     if (index === gifts.length) {
@@ -34,12 +34,12 @@ console.log("BÚSQUEDA DE REGALOS (RECURSIÓN)");
 // Caso 1: El regalo sí está en la lista
 let giftToFind = "Lego";
 console.log("Buscando:", giftToFind);
-console.log(findGift(gifts, giftToFind)); 
+console.log(findGift(gifts, giftToFind));
 // Salida esperada: "Lego está en la posición 3."
 
 
 // Caso 2: El regalo no está en la lista
 giftToFind = "Camión";
 console.log("Buscando:", giftToFind);
-console.log(findGift(gifts, giftToFind)); 
+console.log(findGift(gifts, giftToFind));
 // Salida esperada: "Camión no está en la lista."

@@ -1,0 +1,34 @@
+{
+  "libros": [
+    {
+      "titulo": "Cien años de soledad",
+      "autor": "Gabriel García Márquez",
+      "genero": "Realismo mágico",
+      "disponible": true
+    },
+    {
+      "titulo": "1984",
+      "autor": "George Orwell",
+      "genero": "Distopía",
+      "disponible": true
+    },
+    {
+      "titulo": "Don Quijote de la Mancha",
+      "autor": "Miguel de Cervantes",
+      "genero": "Novela",
+      "disponible": true
+    },
+    {
+      "titulo": "Rayuela",
+      "autor": "Julio Cortázar",
+      "genero": "Novela",
+      "disponible": false
+    },
+    {
+      "titulo": "Pedro Páramo",
+      "autor": "Juan Rulfo",
+      "genero": "Realismo mágico",
+      "disponible": true
+    }
+  ]
+}

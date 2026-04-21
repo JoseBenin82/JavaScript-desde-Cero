@@ -5,7 +5,7 @@
   de una operación asíncrona).
 */
 
-// Callback síncrono: se ejecuta inmediatamente dentro de la función.
+// Callback síncrono: se ejecuta inmediatamente dentro de la función
 function transformar(texto, callback) {
   return callback(texto);
 }
@@ -30,7 +30,7 @@ descargarDatos("https://api.ejemplo.com/libros", (err, data) => {
     console.error("Error:", err);
     return;
   }
-  console.log("✅ Respuesta recibida:", data);
+  console.log(" Respuesta recibida:", data);
 });
 
 // Callback hell vs. encadenamiento ordenado:
@@ -42,7 +42,7 @@ descargarDatos("/paso-1", (err, r1) => {
     console.log("Paso 2 listo:", r2.url);
     descargarDatos("/paso-3", (err, r3) => {
       console.log("Paso 3 listo:", r3.url);
-      console.log("🎯 Cadena completa finalizada.");
+      console.log(" Cadena completa finalizada.");
     });
   });
 });

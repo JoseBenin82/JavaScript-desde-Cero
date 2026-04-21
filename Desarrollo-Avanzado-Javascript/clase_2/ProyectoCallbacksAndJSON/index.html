@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca — Callbacks & JSON</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>📚 Biblioteca</h1>
+    <p class="subtitle">Gestión de libros con JSON y Callbacks (asincronía simulada)</p>
+  </header>
+
+  <main class="container">
+    <!-- Formulario para agregar libros -->
+    <section class="card">
+      <h2>Agregar libro</h2>
+      <form id="form-agregar" class="form-grid" novalidate>
+        <label>
+          <span>Título</span>
+          <input type="text" id="titulo" required placeholder="Ej. El Aleph" />
+        </label>
+        <label>
+          <span>Autor</span>
+          <input type="text" id="autor" required placeholder="Ej. Jorge Luis Borges" />
+        </label>
+        <label>
+          <span>Género</span>
+          <input type="text" id="genero" required placeholder="Ej. Cuento" />
+        </label>
+        <label class="check">
+          <input type="checkbox" id="disponible" checked />
+          <span>Disponible</span>
+        </label>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+      </form>
+    </section>
+
+    <!-- Búsqueda -->
+    <section class="card">
+      <h2>Buscar por autor</h2>
+      <div class="form-inline">
+        <input type="text" id="buscar-autor" placeholder="Escribe un autor..." />
+        <button id="btn-buscar" class="btn">Buscar</button>
+        <button id="btn-limpiar-busqueda" class="btn btn-ghost">Mostrar todos</button>
+      </div>
+      <p id="resultado-busqueda" class="muted"></p>
+    </section>
+
+    <!-- Inventario -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Inventario</h2>
+        <span id="estado" class="badge">Listo</span>
+      </div>
+      <div class="table-wrap">
+        <table id="tabla-libros">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Título</th>
+              <th>Autor</th>
+              <th>Género</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-libros"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Log de operaciones asíncronas -->
+    <section class="card">
+      <h2>Consola de operaciones</h2>
+      <pre id="log" class="log"></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Proyecto didáctico — DevF · Desarrollo Avanzado JavaScript</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

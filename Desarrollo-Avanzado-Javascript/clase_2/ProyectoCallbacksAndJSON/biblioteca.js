@@ -23,7 +23,7 @@ let biblioteca = {
 // 2) Simulación de LECTURA asincrónica del "archivo" JSON.
 //    Convención Node.js: callback(error, datos).
 function leerDatos(callback) {
-  console.log("⏳  Leyendo datos de la biblioteca...");
+  console.log("Leyendo datos de la biblioteca...");
   setTimeout(() => {
     // Se devuelve una copia para evitar mutaciones accidentales desde afuera.
     const copia = JSON.parse(JSON.stringify(biblioteca));
@@ -33,7 +33,7 @@ function leerDatos(callback) {
 
 // 3) Simulación de ESCRITURA asincrónica en el "archivo" JSON.
 function escribirDatos(nuevosDatos, callback) {
-  console.log("💾  Guardando cambios en la biblioteca...");
+  console.log("Guardando cambios en la biblioteca...");
   setTimeout(() => {
     biblioteca = nuevosDatos;
     callback(null, "Datos guardados correctamente.");
@@ -48,10 +48,10 @@ function mostrarLibros(callback) {
       if (callback) callback(err);
       return;
     }
-    console.log("\n📚  Inventario de libros");
-    console.log("─────────────────────────────────────────────");
+    console.log("\n Inventario de libros");
+    console.log("───────────────────");
     datos.libros.forEach((libro, i) => {
-      const estado = libro.disponible ? "✅ Disponible" : "❌ Prestado";
+      const estado = libro.disponible ? "Disponible" : " Prestado";
       console.log(`${i + 1}. "${libro.titulo}" — ${libro.autor} [${libro.genero}]  ${estado}`);
     });
     console.log("─────────────────────────────────────────────\n");
@@ -68,7 +68,7 @@ function agregarLibro(titulo, autor, genero, disponible, callback) {
       (l) => l.titulo.toLowerCase() === titulo.toLowerCase()
     );
     if (yaExiste) {
-      const mensaje = `⚠️   El libro "${titulo}" ya existe en la biblioteca.`;
+      const mensaje = `  El libro "${titulo}" ya existe en la biblioteca.`;
       console.log(mensaje);
       return callback && callback(null, mensaje);
     }
@@ -77,7 +77,7 @@ function agregarLibro(titulo, autor, genero, disponible, callback) {
 
     escribirDatos(datos, (err, mensaje) => {
       if (err) return callback && callback(err);
-      console.log(`✅  Libro agregado: "${titulo}". ${mensaje}`);
+      console.log(`Libro agregado: "${titulo}". ${mensaje}`);
       if (callback) callback(null, mensaje);
     });
   });
@@ -92,7 +92,7 @@ function actualizarDisponibilidad(titulo, nuevoEstado, callback) {
       (l) => l.titulo.toLowerCase() === titulo.toLowerCase()
     );
     if (!libro) {
-      const mensaje = `⚠️   No se encontró el libro "${titulo}".`;
+      const mensaje = `No se encontró el libro "${titulo}".`;
       console.log(mensaje);
       return callback && callback(null, mensaje);
     }
@@ -102,7 +102,7 @@ function actualizarDisponibilidad(titulo, nuevoEstado, callback) {
     escribirDatos(datos, (err, mensaje) => {
       if (err) return callback && callback(err);
       const etiqueta = nuevoEstado ? "disponible" : "prestado";
-      console.log(`🔄  "${titulo}" ahora está ${etiqueta}. ${mensaje}`);
+      console.log(`  "${titulo}" ahora está ${etiqueta}. ${mensaje}`);
       if (callback) callback(null, mensaje);
     });
   });
@@ -116,9 +116,9 @@ function buscarPorAutor(autor, callback) {
       l.autor.toLowerCase().includes(autor.toLowerCase())
     );
     if (encontrados.length === 0) {
-      console.log(`🔍  Sin resultados para "${autor}".`);
+      console.log(` Sin resultados para "${autor}".`);
     } else {
-      console.log(`\n🔍  Libros de "${autor}":`);
+      console.log(`\n  Libros de "${autor}":`);
       encontrados.forEach((l) => console.log(`    • ${l.titulo}  (${l.genero})`));
       console.log("");
     }

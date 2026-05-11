@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adivina el número</title>
+  </head>
+  <body>
+    <main class="card">
+      <h1> Adivina el número</h1>
+      <p class="intro">
+        La computadora ha generado un número entre <strong>1</strong> y
+        <strong>100</strong>. ¡Adivínalo!
+      </p>
+
+      <div class="controls">
+        <input
+          type="number"
+          id="numero"
+          min="1"
+          max="100"
+          placeholder="Tu número..."
+          autocomplete="off"
+        />
+        <button id="adivinar" type="button">Adivinar</button>
+      </div>
+
+      <p id="mensaje" class="mensaje"></p>
+
+      <div class="stats">
+        <span>Intentos: <strong id="intentos">0</strong></span>
+        <span>Restantes: <strong id="restantes">10</strong></span>
+        <span>Mejor récord: <strong id="record">—</strong></span>
+      </div>
+
+      <div class="history">
+        <h2>Historial</h2>
+        <ul id="historial"></ul>
+      </div>
+
+      <button id="reiniciar" type="button" class="reset">🔄 Nueva partida</button>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

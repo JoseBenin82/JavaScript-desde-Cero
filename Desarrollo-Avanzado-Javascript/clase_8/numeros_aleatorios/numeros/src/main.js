@@ -21,11 +21,11 @@ function generarNumero() {
 }
 
 function pistaCercania(diff) {
-  if (diff <= 3) return '🔥 ¡Hirviendo!';
+  if (diff <= 3) return '🔥 ¡Hirviendo jejeje!';
   if (diff <= 7) return '♨️ Muy caliente';
   if (diff <= 15) return '🌤️ Caliente';
   if (diff <= 25) return '❄️ Frío';
-  return '🧊 Muy frío';
+  return '🧊 Muy frío, me congelo jajajaja';
 }
 
 function mostrarMensaje(texto, tipo = '') {

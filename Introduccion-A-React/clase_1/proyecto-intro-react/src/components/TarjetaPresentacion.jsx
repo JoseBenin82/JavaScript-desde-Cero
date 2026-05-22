@@ -1,10 +1,10 @@
 import Habilidad from './Habilidad'
 
 function TarjetaPresentacion() {
-  const nombre = 'Julio García'
+  const nombre = 'Jose Rodriguez'
   const profesion = 'Desarrollador Frontend'
   const mensaje =
-    'Apasionado por construir interfaces limpias, accesibles y con buen rendimiento. Aprendiendo React paso a paso.'
+    'React es una herramienta poderosa y flexible para construir aplicaciones web modernas. Su enfoque basado en componentes, el uso de JSX y su gestión eficiente del estado lo convierten en una de las opciones más populares para el desarrollo frontend.'
 
   const habilidades = [
     { icono: '⚛️', nombre: 'React' },

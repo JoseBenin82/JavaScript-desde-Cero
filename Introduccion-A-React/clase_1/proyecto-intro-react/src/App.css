@@ -1,0 +1,118 @@
+.app {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+  background: linear-gradient(135deg, #1a1530 0%, #2b1c52 50%, #aa3bff 100%);
+}
+
+.tarjeta {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 32px 28px;
+  text-align: center;
+  color: #f5f3ff;
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.tarjeta-avatar {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #c084fc 0%, #6d28d9 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(108, 40, 217, 0.5);
+}
+
+.tarjeta-nombre {
+  margin: 0 0 4px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.tarjeta-profesion {
+  margin: 0 0 16px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #d8b4fe;
+}
+
+.tarjeta-mensaje {
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(245, 243, 255, 0.85);
+}
+
+.tarjeta-habilidades {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.habilidad {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: rgba(192, 132, 252, 0.18);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  color: #f5f3ff;
+}
+
+.habilidad-icono {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.tarjeta-redes {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tarjeta-redes a {
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1530;
+  background: #f5f3ff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-redes a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 480px) {
+  .tarjeta {
+    padding: 24px 20px;
+  }
+  .tarjeta-nombre {
+    font-size: 22px;
+  }
+}

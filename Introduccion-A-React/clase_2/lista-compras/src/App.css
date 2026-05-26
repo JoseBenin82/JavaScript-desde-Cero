@@ -1,0 +1,161 @@
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: left;
+}
+
+.encabezado {
+  text-align: center;
+}
+
+.encabezado h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.encabezado p {
+  margin: 0;
+  color: var(--text-soft, #888);
+}
+
+.formulario {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.campo-nombre {
+  flex: 1 1 200px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #ccc);
+  font-size: 1rem;
+  background: transparent;
+  color: inherit;
+}
+
+.campo-cantidad {
+  width: 80px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #ccc);
+  font-size: 1rem;
+  background: transparent;
+  color: inherit;
+}
+
+.campo-unidad {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #ccc);
+  font-size: 1rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.boton-agregar,
+.boton-eliminar,
+.boton-limpiar {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.boton-agregar {
+  background: #4f46e5;
+  color: white;
+}
+
+.boton-agregar:hover {
+  opacity: 0.9;
+}
+
+.boton-eliminar {
+  background: #ef4444;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.boton-limpiar {
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  margin-left: auto;
+}
+
+.resumen {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.9rem;
+  color: var(--text-soft, #888);
+  border-top: 1px solid var(--border, #ddd);
+  border-bottom: 1px solid var(--border, #ddd);
+  padding: 12px 4px;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(127, 127, 127, 0.08);
+  transition: opacity 0.2s;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.item-nombre {
+  font-weight: 500;
+}
+
+.item-cantidad {
+  color: var(--text-soft, #888);
+  font-size: 0.9rem;
+}
+
+.item-comprado .item-nombre {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.item-comprado {
+  opacity: 0.7;
+}
+
+.lista-vacia {
+  text-align: center;
+  color: var(--text-soft, #888);
+  padding: 24px;
+  border: 2px dashed var(--border, #ddd);
+  border-radius: 12px;
+  margin: 0;
+}

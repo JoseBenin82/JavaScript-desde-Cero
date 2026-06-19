@@ -1,0 +1,283 @@
+:root {
+  --tw-blue: #1d9bf0;
+  --tw-blue-hover: #1a8cd8;
+}
+
+.app {
+  min-height: 100svh;
+  text-align: left;
+}
+
+/* ----------------------------- Navbar ----------------------------- */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-h);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-links a {
+  color: var(--text-h);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  color: var(--tw-blue);
+}
+
+.nav-user {
+  color: var(--text);
+  font-size: 15px;
+}
+
+/* ----------------------------- Layout ----------------------------- */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.page-title {
+  font-size: 22px;
+  margin: 0 0 16px;
+}
+
+.muted {
+  color: var(--text);
+  font-size: 15px;
+}
+
+.error {
+  color: #e0245e;
+  font-size: 14px;
+  margin: 0;
+}
+
+.empty,
+.loading {
+  color: var(--text);
+  text-align: center;
+  padding: 32px 0;
+}
+
+/* ----------------------------- Botones ----------------------------- */
+
+.btn {
+  font: inherit;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.btn-primary {
+  background: var(--tw-blue);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--tw-blue-hover);
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-h);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--tw-blue);
+  color: var(--tw-blue);
+}
+
+/* ----------------------------- Formularios / Auth ----------------------------- */
+
+.auth-card {
+  max-width: 380px;
+  margin: 40px auto;
+}
+.auth-card h1 {
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.form input {
+  font: inherit;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+}
+.form input:focus {
+  outline: 2px solid var(--tw-blue);
+  outline-offset: -1px;
+  border-color: transparent;
+}
+
+/* ----------------------------- Composer ----------------------------- */
+
+.composer {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.composer-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.composer textarea {
+  font: inherit;
+  resize: vertical;
+  border: none;
+  background: transparent;
+  color: var(--text-h);
+  padding: 8px 0;
+}
+.composer textarea:focus {
+  outline: none;
+}
+
+.composer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.counter {
+  font-size: 13px;
+  color: var(--text);
+}
+.counter-low {
+  color: #e0245e;
+}
+
+/* ----------------------------- Tweets ----------------------------- */
+
+.feed {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tweet-body {
+  flex: 1;
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 15px;
+}
+.tweet-name {
+  font-weight: 700;
+  color: var(--text-h);
+}
+.tweet-handle,
+.tweet-date,
+.tweet-dot {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.tweet-text {
+  margin: 4px 0 0;
+  color: var(--text-h);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ----------------------------- Avatar ----------------------------- */
+
+.avatar {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--tw-blue);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+.avatar-lg {
+  width: 72px;
+  height: 72px;
+  font-size: 28px;
+}
+
+/* ----------------------------- Perfil ----------------------------- */
+
+.profile-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-bottom: 24px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.profile-header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+.profile-header p {
+  margin: 2px 0;
+}

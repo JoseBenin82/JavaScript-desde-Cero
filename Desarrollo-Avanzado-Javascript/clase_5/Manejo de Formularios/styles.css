@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7fc;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  background: #fff;
+  width: 100%;
+  max-width: 560px;
+  padding: 30px 35px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1a2a3a;
+  font-size: 1.6rem;
+}
+
+.campo {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #d1d9e0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+input.error-input {
+  border-color: #e74c3c;
+}
+
+input.error-input:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+}
+
+.check-label,
+.radio-label {
+  display: inline-block;
+  margin-right: 18px;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.check-label input,
+.radio-label input {
+  margin-right: 4px;
+  width: auto;
+}
+
+.error {
+  display: block;
+  color: #e74c3c;
+  font-size: 0.82rem;
+  margin-top: 4px;
+  min-height: 1em;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #2ecc71;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 6px;
+}
+
+button:hover {
+  background: #27ae60;
+}
+
+.exito {
+  text-align: center;
+  padding: 20px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.oculto {
+  display: none;
+}

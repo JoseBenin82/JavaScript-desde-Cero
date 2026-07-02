@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Eventos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Registro de Evento</h1>
+    <form id="registroEvento" novalidate>
+
+      <div class="campo">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <span class="error" id="error-nombre"></span>
+      </div>
+
+      <div class="campo">
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+        <span class="error" id="error-correo"></span>
+      </div>
+
+      <div class="campo">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required placeholder="10 dígitos">
+        <span class="error" id="error-telefono"></span>
+      </div>
+
+      <div class="campo">
+        <label>Intereses:</label>
+        <label class="check-label"><input type="checkbox" name="intereses" value="tecnología"> Tecnología</label>
+        <label class="check-label"><input type="checkbox" name="intereses" value="negocios"> Negocios</label>
+        <label class="check-label"><input type="checkbox" name="intereses" value="arte"> Arte</label>
+        <span class="error" id="error-intereses"></span>
+      </div>
+
+      <div class="campo">
+        <label>Horario preferido:</label>
+        <label class="radio-label"><input type="radio" name="horario" value="mañana" required> Mañana</label>
+        <label class="radio-label"><input type="radio" name="horario" value="tarde"> Tarde</label>
+        <label class="radio-label"><input type="radio" name="horario" value="noche"> Noche</label>
+        <span class="error" id="error-horario"></span>
+      </div>
+
+      <div class="campo">
+        <label for="fecha">Fecha del evento:</label>
+        <input type="date" id="fecha" name="fecha" required>
+        <span class="error" id="error-fecha"></span>
+      </div>
+
+      <div class="campo">
+        <label for="archivo">Documento de identificación (opcional — máx. 5 MB):</label>
+        <input type="file" id="archivo" name="archivo" accept=".jpg,.jpeg,.png,.pdf">
+        <span class="error" id="error-archivo"></span>
+      </div>
+
+      <button type="submit">Registrarse</button>
+    </form>
+
+    <div id="mensaje-exito" class="exito oculto">
+      Registro exitoso. ¡Gracias por registrarte!
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

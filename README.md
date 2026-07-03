@@ -76,8 +76,6 @@ JavaScript-Sesiones/
 │   ├── clase_1/                    # Formularios tradicionales
 │   └── clase_02/                   # (próximamente)
 │
-├── .gitignore
-├── opencode.json
 └── README.md                       # ← Estás aquí
 ```
 

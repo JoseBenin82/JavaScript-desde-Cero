@@ -17,9 +17,9 @@
 |--------|-------|-------------|
 | [**JavaScript desde Cero**](./JavaScript-desde-Cero) | 8 | Tipos, operadores, condicionales, loops, arreglos, funciones, objetos, DOM, APIs |
 | [**Lógica y Algoritmos**](./Logica%20y%20Algoritmos) | 8 | ES6+, Two Pointers, Sliding Window, Recursión, Divide & Conquer, Binary Search |
-| [**Desarrollo Avanzado JS**](./Desarrollo-Avanzado-Javascript) | 6 | Event Loop, Callbacks, Fetch vs Axios, Promises, Formularios, Vite |
-| [**Introducción a React**](./Introduccion-A-React) | 3 | Componentes, estado, router, context, autenticación |
-| [**React Avanzado**](./React%20Avanzado) | 2 | Formularios tradicionales en React (en progreso) |
+| [**Desarrollo Avanzado JS**](./Desarrollo-Avanzado-Javascript) | 8 | Event Loop, Callbacks, Fetch vs Axios, Promises, Formularios, Zod, Node.js, Vite |
+| [**Introducción a React**](./Introduccion-A-React) | 8 | Componentes, Props, Estado, Eventos, Renderizado condicional, Hooks, Router, Context, Autenticación |
+| [**React Avanzado**](./React%20Avanzado) | — | En desarrollo |
 
 ---
 
@@ -62,19 +62,25 @@ JavaScript-Sesiones/
 ├── Desarrollo-Avanzado-Javascript/ # JS asíncrono y herramientas
 │   ├── clase_1/                    # Event Loop (cafetería)
 │   ├── clase_2/                    # Callbacks y JSON
-│   ├── clase_3/                    # Fetch vs Axios (Rick & Morty)
+│   ├── clase_03/                   # Fetch vs Axios (Rick & Morty)
 │   ├── clase_4/                    # Promesas y Async/Await
 │   ├── clase_5/                    # Formularios con validación
+│   ├── clase_6/                    # Validación con Zod
+│   ├── clase_7/                    # Introducción a Node.js
 │   └── clase_8/                    # Proyectos con Vite
 │
 ├── Introduccion-A-React/           # El mundo de React
 │   ├── clase_1/                    # Tarjeta de presentación
 │   ├── clase_2/                    # Lista de compras (CRUD)
+│   ├── clase_3/                    # Contador de tareas
+│   ├── clase_4/                    # Componentes y composición
+│   ├── clase_5/                    # Juego de adivinanzas (renderizado condicional)
+│   ├── clase_6/                    # Hooks avanzados (inventario)
+│   ├── clase_7/                    # Gestión de citas médicas (Router)
 │   └── clase_8/                    # Chirp (Twitter Clone)
 │
 ├── React Avanzado/                 # React a profundidad
-│   ├── clase_1/                    # Formularios tradicionales
-│   └── clase_02/                   # (próximamente)
+│   └── (próximamente)
 │
 └── README.md                       # ← Estás aquí
 ```
@@ -86,12 +92,18 @@ JavaScript-Sesiones/
 | Proyecto | Módulo | Tecnologías |
 |----------|--------|-------------|
 | [**Chirp**](Introduccion-A-React/clase_8/Proyecto) — Clon de Twitter | React | React 19, Router, Context, SHA-256 |
+| [**Gestión de Citas Médicas**](Introduccion-A-React/clase_7/ManejoDeRutas/GestionCitasMedicas) — SPA completa | React | React Router, Layouts, Autenticación |
+| [**Inventario con Hooks**](Introduccion-A-React/clase_6/ProyectoHooksAvanzados/Proyecto) | React | useState, useEffect, useMemo |
+| [**Juego de Adivinanzas**](Introduccion-A-React/clase_5/RenderingComposition/Conditional) | React | Renderizado condicional, Componentes |
 | [**Rick & Morty Explorer**](Desarrollo-Avanzado-Javascript/clase_03/Proyecto%20Fetch%20y%20Axios) | JS Avanzado | Fetch, Axios, REST API |
 | [**Restaurant Reservation**](Desarrollo-Avanzado-Javascript/clase_4/ProyectoPromesasAsyncAwait) | JS Avanzado | Promises, Async/Await |
+| [**Validación con Zod**](Desarrollo-Avanzado-Javascript/clase_6/ValidaciónFormulariosZod) | JS Avanzado | Zod, Formularios |
+| [**Exploración Espacial**](Desarrollo-Avanzado-Javascript/clase_7/IntroNode/mi-exploracion-espacial) — Node.js | JS Avanzado | Node.js, cowsay, fs |
 | [**Password Generator**](JavaScript-desde-Cero/clase_7) | JS desde Cero | DOM, Eventos |
 | [**Book Library**](JavaScript-desde-Cero/clase_8) | JS desde Cero | Open Library API, DOM |
 | [**Gestor de Notas CLI**](Logica%20y%20Algoritmos/clase_8) | Algoritmos | Node.js, JSON, fs |
 | [**Business Card**](Introduccion-A-React/clase_1/proyecto-intro-react) | React | Componentes, Props |
+| [**Lista de Compras CRUD**](Introduccion-A-React/clase_2/lista-compras) | React | Estado, Eventos, CRUD |
 
 ---
 
@@ -112,10 +124,11 @@ npm run dev
 ## 🛠️ Tecnologías Usadas
 
 - **Lenguajes:** JavaScript (ES6+), JSX
-- **Librerías:** React 19, React Router DOM 7
+- **Librerías:** React 19, React Router DOM 7, Zod
 - **HTTP:** Fetch API, Axios
 - **Herramientas:** Vite, Node.js, ESLint
 - **APIs externas:** Rick & Morty API, Open Library API
+- **Paquetes:** cowsay
 
 ---
 
